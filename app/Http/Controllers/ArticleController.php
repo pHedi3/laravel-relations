@@ -38,10 +38,9 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $allArticle = Article::all();
-        $newArticle = new Article();
-        $this->fillAndSave($newArticle, $request);
-        return view('article.index', compact('allArticle'));
+        $article = new Article();
+        $this->fillAndSave($article, $request);
+        return view('article.show', compact('article'));
     }
 
     /**
@@ -61,9 +60,11 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Article $article)
     {
-        //
+        $allAuthor = Author::all();
+        return view('article.edit', compact('article', 'allAuthor'));
+
     }
 
     /**
@@ -73,9 +74,10 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Article $article)
     {
-        //
+        $this->fillAndSave($article, $request);
+        return view('article.show', compact('article'));
     }
 
     /**
@@ -84,9 +86,10 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Article $article)
     {
-        //
+        $article->delete();
+        return redirect()->route('article.index');
     }
     private function fillAndSave(Article $article, $request) {
         $data = $request->all();

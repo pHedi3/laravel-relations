@@ -9,11 +9,13 @@
 </head>
 <body>
     <div class="container index">
-        <a href="{{route('article.create')}}"><button>+ article</button></a>
         <div class="row">
+            <div class="col-12">
+                <a href="{{route('article.create')}}"><button class="btn btn-primary">+ article</button></a>
+            </div>
             @foreach ($allArticle as $item)
             <div class="article d-flex align-content-stretch  col-6">
-                <a href="{{route('article.show', $item)}}">
+                <a class="d-flex align-content-stretch" href="{{route('article.show', $item)}}">
                     <div class="back row">
                         <h1 class="col-12">{{$item->title}}</h1>
                         <h3 class="col-6">{{$item->author->name}} {{$item->author->surname}}</h3>

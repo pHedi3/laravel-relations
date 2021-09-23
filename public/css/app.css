@@ -10947,19 +10947,15 @@ body {
   color: white;
 }
 
-.index .article {
-  margin-top: 12px;
-}
-
 .index .article a {
+  margin: 12px;
   color: white;
   text-decoration: none;
 }
 
 .index .article a .back {
-  margin: 12px 0;
-  background-color: #222;
   padding: 12px 0;
+  background-color: #222;
 }
 
 .index .article a .back img {
@@ -10984,6 +10980,18 @@ body {
 
 .create .article .back img {
   text-align: center;
+}
+
+.show .button {
+  margin-top: 12px;
+}
+
+.show .button a {
+  margin-right: 8px;
+}
+
+.show .button form {
+  display: inline;
 }
 
 .show .article {

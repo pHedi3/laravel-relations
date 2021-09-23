@@ -9,8 +9,16 @@
 </head>
 <body>
     <div class="container show">
-        <a href="{{route('article.index')}}"><button>torna all'index</button></a>
         <div class="row">
+            <div class="col-12 button">
+                <a href="{{route('article.index')}}"><button class="btn btn-primary">Index</button></a>
+                <a href="{{route('article.edit', $article)}}"><button class="btn btn-primary">Modifica</button></a>
+                <form action="{{route('article.destroy', $article)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-primary">Destroy</button>
+                </form>
+            </div>
             <div class="article d-flex align-content-stretch  col-6">
                 <div class="back row">
                     <h1 class="col-12">{{$article->title}}</h1>

@@ -13,14 +13,13 @@ body {
 }
 .index {
     .article {
-        margin-top: 12px;
         a {
+            margin: 12px;
             color: white;
             text-decoration: none;
             .back {
-                margin: 12px 0;
-                background-color: #222;
                 padding: 12px 0;
+                background-color: #222;
                 img {
                     text-align: center;
                 }
@@ -47,6 +46,15 @@ body {
 }
 
 .show {
+    .button {
+        margin-top: 12px;
+        a {
+            margin-right: 8px;
+        }
+        form {
+            display: inline;
+        }
+    }
     .article {
         margin-top: 12px;
         margin: 12px 0;
