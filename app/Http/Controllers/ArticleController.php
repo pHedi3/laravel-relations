@@ -105,7 +105,15 @@ class ArticleController extends Controller
         if(array_key_exists('tags', $data)) {
 
             foreach($data['tags'] as $tagId) {
-                $article->tags()->attach($tagId);
+                $fleg = false;
+                foreach ($article->tags->toArray() as $tagIf) {
+                    if ($tagId == $tagIf['id']) {
+                        $fleg = true;
+                    }
+                }
+                if ($fleg) {
+                    $article->tags()->attach($tagId);
+                }
             }
 
         }
