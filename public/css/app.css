@@ -10976,10 +10976,26 @@ body {
 .create .article .back select,
 .create .article .back textarea {
   margin-bottom: 8px;
+  background-color: #444;
+  color: white;
 }
 
 .create .article .back img {
   text-align: center;
+}
+
+.create .article .back .tag {
+  vertical-align: middle;
+  font-weight: bold;
+}
+
+.create .article .back .tag label {
+  margin: 0;
+  margin-left: 4px;
+}
+
+.create .article .back .tag input {
+  margin: 0;
 }
 
 .show .button {
@@ -11006,5 +11022,14 @@ body {
 
 .show .article .back img {
   text-align: center;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #456745;
+  padding: 0 8px;
+  border-radius: 8px;
+  margin-right: 4px;
+  margin-bottom: 8px;
 }
 

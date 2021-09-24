@@ -26,8 +26,29 @@
                                     @endif  
                                 @endforeach
                             </select>
-                            <textarea class="col-12" name="text" id="text" cols="30" rows="10""> {{$article->text}}</textarea>
+                            <textarea class="col-12" name="text" id="text" cols="30" rows="10"> {{$article->text}}</textarea>
                             <input class="col-12" type="text" name="image" id="image" value="{{$article->image}}">
+                            @foreach ($allTag as $tag)
+                            <div class="d-flex align-items-center tag">
+                                @php
+                                $testTag = $tag->toArray();
+                                $arrayArticleTag = $article->tags->toArray();
+                                $fleg = false;
+                                foreach ($arrayArticleTag as $tagIf) {
+                                    if ($testTag['tag'] == $tagIf['tag']) {
+                                        $fleg = true;
+                                    }
+                                }
+                                if ($fleg) {
+                                    $text = 'checked';
+                                } else {
+                                    $text = '';
+                                }
+                                @endphp
+                                <input  type="checkbox" name="tags[]" value="{{$tag->id}}" id="{{$tag->id}}" {{$text}}>
+                                <label  for="{{$tag->id}}">{{$tag->tag}}</label>
+                            </div>
+                            @endforeach
                             <button type="submit" class="col-2 offset-10 btn btn-primary" >Invia</button>
                         </form>
                     </div>    

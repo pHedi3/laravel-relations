@@ -3,6 +3,7 @@
 use App\Author;
 use Illuminate\Database\Seeder;
 use App\Article;
+use App\Tag;
 
 class ArticlesTableSeeder extends Seeder
 {
@@ -14,6 +15,15 @@ class ArticlesTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker\Factory::create();
+        $listTag = [
+            'sport',
+            'news',
+            'food',
+            'italy',
+            'world',
+            'homemade',
+        ];
+        $allTagId = []; 
 
         $allIdAuthor = [];
 
@@ -26,6 +36,12 @@ class ArticlesTableSeeder extends Seeder
             $newAuthor->save();
             $allIdAuthor[] = $newAuthor->id;
         };
+        foreach ($listTag as $tag) {
+            $newTag = new Tag();
+            $newTag->tag = $tag;
+            $newTag->save();
+            $allTagId[] = $newTag;
+        }
 
         for ($i= 0; $i < 50; $i++) {
             $newpost = new Article();
@@ -37,6 +53,11 @@ class ArticlesTableSeeder extends Seeder
             $newpost->author_id = $AuthorID;
             $newpost->save();
 
+            $tagsId = array_rand($allTagId, rand(2,4));
+            foreach ($tagsId as $idTag) {
+                $tag = $allTagId[$idTag];
+                $newpost->tags()->attach($tag);
+            }
         };
     }
 }

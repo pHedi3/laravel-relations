@@ -20,7 +20,12 @@
                         <h1 class="col-12">{{$item->title}}</h1>
                         <h3 class="col-6">{{$item->author->name}} {{$item->author->surname}}</h3>
                         <p class="col-12">{{$item->text}}</p>
-                        <img class="col-6 offset-6" src="{{$item->image}}" alt="">
+                        <div class="col-6">
+                            @foreach ($item->tags as $tag)
+                                <div class="tag">{{$tag->tag}}</div>
+                            @endforeach
+                        </div>
+                        <img class="col-6" src="{{$item->image}}" alt="">
                     </div>
                 </a>
             </div>

@@ -33,12 +33,25 @@ body {
         .back {
             input, select, textarea {
                 margin-bottom: 8px;
+                background-color: #444;
+                color: white;
             }
             margin: 12px 0;
             background-color: #222;
             padding: 12px 0;
             img {
                 text-align: center;
+            }
+            .tag {
+                vertical-align: middle;
+                font-weight: bold;
+                label {
+                    margin: 0 ;
+                    margin-left: 4px;
+                }
+                input {
+                    margin: 0;
+                }
             }
         }
 
@@ -66,4 +79,13 @@ body {
             }
         }
     }
+}
+
+.tag {
+    display: inline-block;
+    background-color: rgb(69, 103, 69);
+    padding:0  8px;
+    border-radius: 8px;
+    margin-right: 4px;
+    margin-bottom: 8px;
 }
